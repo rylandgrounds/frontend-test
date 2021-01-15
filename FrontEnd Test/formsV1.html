@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Midway Technical Frontend Test</title>
+    <link rel="stylesheet" href="forms.css" />
+  </head>
+  <body>
+    <script src="form.js"></script>
+
+    <button onclick="display_form('contact')">Display Form</button>
+    <form
+      id="contact"
+      title="contact-form"
+      name="contact-form"
+      action="/contact"
+      method="POST"
+      style="display: none"
+    >
+      <h2>Contact Form</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /> <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="reason">Please Choose a Contact Reason:</label>
+      <select
+        name="reason"
+        id="reason"
+        onchange="if(this.value === 'Trouble Finding Product'){display_form('product')}"
+      >
+        <br />
+        <optgroup label="Order Issues">
+          <option value="Order question">Order question</option>
+        </optgroup>
+        <optgroup label="Product Issues">
+          <option value="Trouble Finding Product">
+            Trouble Finding Product
+          </option>
+        </optgroup>
+        <optgroup label="Website Issues">
+          <option value="Website feedback">Website feedback</option>
+        </optgroup></select
+      ><br /><br />
+      Feedback
+      <textarea
+        rows="4"
+        cols="50"
+        placeholder="Please provide your feedback..."
+        required
+      ></textarea>
+      <input type="submit" value="Submit" />
+    </form>
+    <form id="product" style="display: none" action="/products" method="POST">
+      <h2>Product Suggestion Form</h2>
+      <br />
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <textarea
+        rows="4"
+        cols="50"
+        placeholder="Please Describe the Product...."
+        required
+      ></textarea>
+      <br /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

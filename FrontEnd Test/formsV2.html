@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Midway Technical Frontend Test</title>
+    <link rel="stylesheet" href="forms.css" />
+  </head>
+  <body>
+    <script src="form.js"></script>
+
+    <button onclick="display_form('contact')">Display Form</button>
+    <form
+      id="contact"
+      title="contact-form"
+      name="contact-form"
+      action="/contact"
+      method="POST"
+      style="display: none"
+    >
+      <h2>Contact Form</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /> <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="reason">Please Choose a Contact Reason:</label>
+      <select
+        name="reason"
+        id="reason"
+        onchange="if(this.value === 'Trouble Finding Product'){display_form('product')}"
+      >
+        <br />
+        <optgroup label="Order Issues">
+          <option value="Order/Backorder Status Check">
+            Order/Backorder Status Check
+          </option>
+          <option value="Change or Cancel Order/Backorder">
+            Change or Cancel Order/Backorder
+          </option>
+          <option value="Order question">Order question</option>
+          <option value="Track Package">Track Package</option>
+        </optgroup>
+        <optgroup label="Returns">
+          <option value="Damaged or Missing Product">
+            Damaged or Missing Product
+          </option>
+          <option value="Make a Return">Make a Return</option>
+          <option value="Return/Refund Status Check">
+            Return/Refund Status Check
+          </option>
+        </optgroup>
+        <optgroup label="Product Issues">
+          <option value="Trouble Finding Product">
+            Trouble Finding Product
+          </option>
+          <option value="Product Technical Question">
+            Product Technical Question
+          </option>
+        </optgroup>
+        <optgroup label="Account Issues">
+          <option value="Change Account Information">
+            Change Account Information
+          </option>
+          <option value="Account Documents/Licenses">
+            Account Documents/Licenses
+          </option>
+        </optgroup>
+        <optgroup label="Website Issues">
+          <option value="Website feedback">Website feedback</option>
+          <option value="Website Performance Issue">
+            Website Performance Issue
+          </option>
+          <option value="Website Sign In Issue">Website Sign In Issue</option>
+          <option value="Promotion Code Not Running">
+            Promotion Code Not Running
+          </option>
+          <option value="Midway Money Not Applied">
+            Midway Money Not Applied
+          </option>
+          <option value="Web Site Accessibility Issue">
+            Web Site Accessibility Issue
+          </option>
+        </optgroup>
+        <optgroup label="Other Issues">
+          <option value="Print or Delete Privacy Act Eligible Data">
+            Print or Delete Privacy Act Eligible Data
+          </option>
+          <option value="Other">Other</option>
+        </optgroup></select
+      ><br /><br />
+      Feedback
+      <textarea
+        rows="4"
+        cols="50"
+        placeholder="Please provide your feedback..."
+        required
+      ></textarea>
+      <input type="submit" value="Submit" />
+    </form>
+    <form id="product" style="display: none" action="/products" method="POST">
+      <h2>Product Suggestion Form</h2>
+      <br />
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+      <textarea
+        rows="4"
+        cols="50"
+        placeholder="Please Describe the Product...."
+        required
+      ></textarea>
+      <br /><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
